@@ -1,17 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>85cd974b-cdca-4680-901b-4158efeeb3be</ProjectGuid>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7893826A-F067-4204-9624-4EE854F85CFF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CustomControls</RootNamespace>
     <AssemblyName>CustomControls</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <SccProjectName>Svn</SccProjectName>
+    <SccLocalPath>Svn</SccLocalPath>
+    <SccAuxPath>Svn</SccAuxPath>
+    <SccProvider>SubversionScc</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +46,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,24 +55,275 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Classes\Funcoes.cs" />
+    <Compile Include="Classes\Imagem.cs" />
+    <Compile Include="Classes\Log\Logging.cs" />
+    <Compile Include="Classes\Mensagem.cs" />
+    <Compile Include="Contract\IData.cs" />
+    <Compile Include="Data\DataCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\DataCheckBox.Designer.cs">
+      <DependentUpon>DataCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataNavigator.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\DataNavigator.Designer.cs">
+      <DependentUpon>DataNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataRadioButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\DataRadioButton.Designer.cs">
+      <DependentUpon>DataRadioButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\DataComboBox.Designer.cs">
+      <DependentUpon>DataComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\DataDateTimePicker.Designer.cs">
+      <DependentUpon>DataDateTimePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataMaskedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\DataMaskedTextBox.Designer.cs">
+      <DependentUpon>DataMaskedTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataPictureBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\DataPictureBox.Designer.cs">
+      <DependentUpon>DataPictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\DataTextBox.Designer.cs">
+      <DependentUpon>DataTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataComboBoxUF.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\DataComboBoxUF.Designer.cs">
+      <DependentUpon>DataComboBoxUF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ImageBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data\ImageBox.Designer.cs">
+      <DependentUpon>ImageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ImageBoxGridDisplayMode.cs" />
+    <Compile Include="Data\ImageBoxGridScale.cs" />
+    <Compile Include="Data\StarRatingControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enums\EnumImagem.cs" />
+    <Compile Include="Enums\EstadoEdicao.cs" />
+    <Compile Include="Forms\ClasseAguarde.cs" />
+    <Compile Include="Forms\FrmSimplesNavigator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSimplesNavigator.Designer.cs">
+      <DependentUpon>FrmSimplesNavigator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSplash.Designer.cs">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\F_Aguarde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\F_Aguarde.Designer.cs">
+      <DependentUpon>F_Aguarde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmEmailDesenvolvedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEmailDesenvolvedor.Designer.cs">
+      <DependentUpon>FrmEmailDesenvolvedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmParent.Designer.cs">
+      <DependentUpon>FrmParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSimples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSimples.Designer.cs">
+      <DependentUpon>FrmSimples.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSobre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSobre.Designer.cs">
+      <DependentUpon>FrmSobre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmVisualizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmVisualizer.Designer.cs">
+      <DependentUpon>FrmVisualizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserControlSimplesNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\UserControlSimplesNavigator.Designer.cs">
+      <DependentUpon>UserControlSimplesNavigator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\DataComboBox.resx">
+      <DependentUpon>DataComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataComboBoxUF.resx">
+      <DependentUpon>DataComboBoxUF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataPictureBox.resx">
+      <DependentUpon>DataPictureBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\DataTextBox.resx">
+      <DependentUpon>DataTextBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\StarRatingControl.resx">
+      <DependentUpon>StarRatingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSimplesNavigator.resx">
+      <DependentUpon>FrmSimplesNavigator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSplash.resx">
+      <DependentUpon>FrmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\F_Aguarde.resx">
+      <DependentUpon>F_Aguarde.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEmailDesenvolvedor.resx">
+      <DependentUpon>FrmEmailDesenvolvedor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmParent.resx">
+      <DependentUpon>FrmParent.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSimples.resx">
+      <DependentUpon>FrmSimples.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSobre.resx">
+      <DependentUpon>FrmSobre.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmVisualizer.resx">
+      <DependentUpon>FrmVisualizer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserControlSimplesNavigator.resx">
+      <DependentUpon>UserControlSimplesNavigator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Inserir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gnome-Media-Floppy-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Primeiro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anterior.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proximo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ultimo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\animation.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
