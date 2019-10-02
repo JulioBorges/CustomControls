@@ -10,13 +10,14 @@ namespace CustomControls.Forms
 {
     public static class ClasseAguarde
     {
+        private static F_BackgroundAguarde _background;
         private static F_Aguarde _telaAguarde; //Form Loading.
-        private static Thread _threadAguarde; //Thread para controle de loading.
-        public delegate void SetFecharTelaAguarde();
+        private static Action _metodoFimDoCarregamento = null;
 
-        public static void IniciarCarregamento()
+        public static void IniciarCarregamento(Action metodoNoFinal = null)
         {
-            _threadAguarde = new Thread(CarregandoPorThread) { IsBackground = true };
+            _metodoFimDoCarregamento = metodoNoFinal;
+            var _threadAguarde = new Thread(CarregandoPorThread) { IsBackground = true };
             _threadAguarde.SetApartmentState(ApartmentState.STA);
             _threadAguarde.Start();
         }
@@ -25,8 +26,16 @@ namespace CustomControls.Forms
         {
             try
             {
-                _telaAguarde = new F_Aguarde();
-                _telaAguarde.TopMost = true;
+                _background = new F_BackgroundAguarde();
+                _background.Show();
+                _background.Enabled = false;
+                _background.TopMost = true;
+
+                _telaAguarde = new F_Aguarde
+                {
+                    TopMost = true
+                };
+                _telaAguarde.BringToFront();
                 _telaAguarde.ShowDialog();
             }
             catch
@@ -37,12 +46,11 @@ namespace CustomControls.Forms
 
         public static void FimCarregamento()
         {
-            if (_threadAguarde != null)
-            {
-                FecharFormulario();
-                _threadAguarde.Abort();
-                Application.DoEvents();
-            }
+            FecharFormulario();
+            //_threadAguarde.Abort();
+            Application.DoEvents();
+
+            _metodoFimDoCarregamento?.Invoke();
         }
 
         private static void FecharFormulario()
@@ -59,13 +67,13 @@ namespace CustomControls.Forms
                     {
                         _telaAguarde.Close();
                         _telaAguarde.Dispose();
-                        _threadAguarde.Interrupt();
+                        //_threadAguarde.Interrupt();
                     }
                 }
             }
             catch
             {
-                _threadAguarde.Abort();
+                //_threadAguarde.Abort();
             }
         }
     }

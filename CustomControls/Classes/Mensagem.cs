@@ -1,5 +1,4 @@
-﻿using CustomControls.Classes.Log;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace CustomControls.Classes
@@ -9,7 +8,6 @@ namespace CustomControls.Classes
         public static void Erro(IWin32Window container, string msg)
         {
             MessageBox.Show(container, msg, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            Logging.Log(true, "Erro: " + msg);
         }
 
         public static void Erro(IWin32Window container, string msg, string titulo)
@@ -53,20 +51,17 @@ namespace CustomControls.Classes
         {
             MessageBox.Show(container, msg + "Detalhes:\n\n" + ex.Message, "Atenção", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
-            Logging.Log(true, ex);
         }
 
         public static void Excecao(IWin32Window container, string msg, string titulo, Exception ex)
         {
             MessageBox.Show(container, msg + "Detalhes" + ex.Message, titulo, MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
-            Logging.Log(true, ex);
         }
 
         public static void Excecao(IWin32Window container, Exception ex)
         {
             MessageBox.Show(container, ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            Logging.Log(true, ex);
         }
     }
 }
